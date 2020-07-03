@@ -23,9 +23,9 @@
         :rules="relusPassword"
       />
       <div style="margin-top: 50px;">
-        <van-button round block type="info" native-type="submit">
-          提交
-        </van-button>
+        <van-button round block type="info" native-type="submit"
+          >提交</van-button
+        >
       </div>
     </van-form>
     <togglel>
@@ -78,6 +78,8 @@ export default {
       if (statusCode === 200) {
         this.$toast.success(message)
         localStorage.setItem('token', res.data.data.token)
+        localStorage.setItem('userid', res.data.data.user.id)
+        this.$router.push('/user')
       } else {
         this.$toast.fail(message)
       }
