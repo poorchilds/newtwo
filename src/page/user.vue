@@ -1,18 +1,15 @@
 <template>
   <div class="user">
     <!-- 头像框 -->
-    <div class="static">
+    <div class="static" @click="$router.push('/editdata')">
       <!-- 左边 -->
       <div class="le">
-        <img :src="'http://localhost:3000' + userdata.head_img" />
+        <img :src="$axios.defaults.baseURL + userdata.head_img" />
       </div>
       <!-- 中间 -->
       <div class="cen">
         <div>
-          <span
-            v-if="userdata.gender === 1"
-            class="iconfont iconxingbienan"
-          ></span>
+          <span v-if="userdata.gender === 1" class="iconfont iconxingbienan"></span>
           <span v-else class="iconfont iconxingbienv"></span>
           <span>{{ userdata.nickname }}</span>
         </div>
@@ -37,7 +34,7 @@
         <template>我的收藏</template>
         <template #focus>文章/视频</template>
       </navbar>
-      <navbar>
+      <navbar @click="$router.push('/editdata')">
         <template>设置</template>
       </navbar>
     </div>
@@ -56,13 +53,7 @@ export default {
   components: {},
   async created() {
     const id = localStorage.getItem('userid')
-    const token = localStorage.getItem('token')
-    const res = await this.$axios.get(`/user/${id}`, {
-      headers: {
-        Authorization: token
-      }
-    })
-    console.log(res.data.data, 123)
+    const res = await this.$axios.get(`/user/${id}`)
     const { statusCode, message } = res.data
     if (statusCode === 200) {
       this.userdata = res.data.data

@@ -1,26 +1,16 @@
 <template>
   <div class="login">
-    <headl>
+    <headtitle>
       <template v-slot:txt>注册</template>
       <template v-slot:icon2>laal</template>
       <template v-slot:icon1>
         <span @click="toggle('/login')" class="iconfont iconjiantou2"></span>
       </template>
-    </headl>
+    </headtitle>
     <logol></logol>
     <van-form class="form-l" @submit="hsend">
-      <van-field
-        class="inp"
-        v-model="username"
-        placeholder="用户名"
-        :rules="relusUsername"
-      />
-      <van-field
-        class="inp"
-        v-model="nickname"
-        placeholder="昵称"
-        :rules="relusNickname"
-      />
+      <van-field class="inp" v-model="username" placeholder="用户名" :rules="relusUsername" />
+      <van-field class="inp" v-model="nickname" placeholder="昵称" :rules="relusNickname" />
       <van-field
         class="inp"
         v-model="password"
@@ -29,9 +19,7 @@
         :rules="relusPassword"
       />
       <div style="margin-top: 50px;">
-        <van-button round block type="info" native-type="submit">
-          提交
-        </van-button>
+        <van-button round block type="info" native-type="submit">提交</van-button>
       </div>
     </van-form>
     <togglel>
@@ -44,7 +32,6 @@
 </template>
 
 <script>
-import headl from '../components/login/head-l.vue'
 import logol from '../components/login/logo-l.vue'
 import togglel from '../components/login/toggle-l.vue'
 export default {
@@ -106,9 +93,7 @@ export default {
     }
   },
   components: {
-    headl,
     logol,
-
     togglel
   },
   created() {}

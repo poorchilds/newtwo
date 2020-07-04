@@ -26,7 +26,8 @@ export default {
 .head-l {
   height: 50px;
   display: flex;
-  font-size: 20px;
+  font-size: 14px;
+  font-weight: 900;
   // text-align: center;
   .h-icon {
     text-align: center;
